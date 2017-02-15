@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/image">
+        <file>image_title.png</file>
+        <file>image_leave.bmp</file>
+        <file>image_loading.bmp</file>
+        <file>image_loading2.bmp</file>
+    </qresource>
+</RCC>
