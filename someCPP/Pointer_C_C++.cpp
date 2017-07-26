@@ -18,9 +18,9 @@ int main(void)
 	aa = &a;
 	bb = &b;
 
-	cout << "string str's size ="<<sizeof(str) <<" str_new="<<*str_new<< endl;	//28
-	cout << "char *str1's size =" << sizeof(*str1) <<" *str1="<<*str1<< endl;		//1
-	cout << "char str1's size =" << sizeof(str1) << endl;										//4
+	cout << "string str's size ="<<sizeof(str) <<" str_new="<<*str_new<< endl;	//28 	//32(因为此Linux系统为64位,28是因为VS社区版本只有32位)
+	cout << "char *str1's size =" << sizeof(*str1) <<" *str1="<<*str1<< endl;	//1
+	cout << "char str1's size =" << sizeof(str1) << endl;						//4		//8
 
 	if (aa == bb) {
 		cout << "aa == bb" << endl;
@@ -40,10 +40,10 @@ int main(void)
 	char *c = "hello c!";		//常量池 常量区
 	char *d = "hello c!";
 	if (c == d) {
-		cout << "c == d (地址！)" << endl;		// it's equal!
+		cout << "c == d (address same!)" << endl;		// it's equal!
 	}
 	else {
-		cout << " c != d (地址不同!)" << endl;
+		cout << " c != d (address different!)" << endl;
 	}
 	return 0;
 }
