@@ -14,7 +14,8 @@ int main(int argc,char **argv)
 
 	int val = a<b ? a<b : c-a;		//a<b 的值为1,
 	printf("val = %d\n", val);
-
+	int val1 = a<b ? 1 : 0;			//若a<b为真，则返回1，若为假则返回0
+	printf("val1 = %d\n", val1);	
 
 	return 0;
 }
