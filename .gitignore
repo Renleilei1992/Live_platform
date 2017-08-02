@@ -1,6 +1,8 @@
 #Linux cpp/c
 *.out
 
+#swp
+*.swp
 
 # Prerequisites
 *.d
