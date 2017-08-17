@@ -7,6 +7,7 @@ DAYS=1
 ################################################################################
 main()
 {
+	cd $FILEPATH
 	echo "开始删除过期文件..."
 	ls -lrt
     find $FILEPATH -name "*.c" -ctime +$DAYS -type f -exec rm -rf {} \;
