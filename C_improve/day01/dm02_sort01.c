@@ -2,16 +2,17 @@
 #include "string.h"
 #include "stdio.h"
 //排序
-void main01()
+void main()
 {
 	int	i = 0,j = 0;
 	int	tmp = 0;
-	int a[] = {33,654,4,455,6,33,4};
+	int a[] = {6,5,4,7,3,1,2};
 	printf("排序之前\n");
 	for (i=0; i<7; i++)
 	{
 		printf("%d ", a[i]);
-	}	
+	}
+	printf("\n");	
 	//排序
 	//外层循环	当i=0的时候, 让j从1===N进行变化
 	//外层循环	当i=1的时候, 让j从2===N进行变化
@@ -26,6 +27,10 @@ void main01()
 				tmp = a[i];
 				a[i]= a[j];
 				a[j] = tmp;
+				for(int k=0; k<7; k++){
+					printf("%d ",a[k]);
+				}
+				printf("\n");
 			}
 		}
 	}
@@ -78,6 +83,7 @@ void sortArray(int a[7], int num)
 	//形参中的数组 ,编译器会把它当成指针处理 这是C语言的特色
 	//排序 本质也剖析 
 //3 形参写在函数上,和写在函数内是一样的,只不过是具有对外的属性而已.
+/*
 void main22()
 {
 	int		i = 0,	j = 0;
@@ -103,3 +109,4 @@ void main22()
 	printf("hello...\n");
 	system("pause");
 }
+*/
