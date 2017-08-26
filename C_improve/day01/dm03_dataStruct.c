@@ -10,7 +10,7 @@
 void main31()
 {
 	int a; //告诉c编译器分配4个字节的内存
-	int b[10] ; //告诉c编译器分配40个自己内存
+	int b[10] ; //告诉c编译器分配40个字节内存
 
 	printf("b:%d, b+1:%d, &b:%d, &b+1:%d \n", b, b+1, &b, &b+1);
 
@@ -45,7 +45,7 @@ typedef int u32;
 void main33()
 {
 	int a; //告诉c编译器分配4个字节的内存
-	int b[10] ; //告诉c编译器分配40个自己内存
+	int b[10] ; //告诉c编译器分配40个字节内存
 
 	struct Teacher t1;
 
