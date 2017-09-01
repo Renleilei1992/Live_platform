@@ -4,6 +4,7 @@
 #include <iostream>
 #include <cstdlib>
 #include <string>
+#include <string.h>
 
 using namespace std;
 
@@ -16,15 +17,20 @@ int main(int argc,char **argv)
 	cout<<"sizeof(str) = "<<sizeof(str)<<endl;
 	cout<<"sizeof(p) = "<<sizeof(p)<<endl;
 
-	for(;i<(sizeof(p)/sizeof(p[0]));++i){
-		cout<<" i = "<<i<<endl;
+	for(i=0; i<(sizeof(p)/sizeof(p[0])); ++i){
 		p[i] = (char *)malloc(sizeof(str));
+		memset(p[i], 0x00, sizeof(p[i]));
+//		strcpy(p[i],static_cast<char *>(&str[i]));
+		strcpy(p[i],&str[i]);
+//		strcpy(p[i],"h");
+		cout<<" i= "<<i<<"  p["<<i<<"]="<<p[i]<<"  str[i]="<<str[i]<<endl;
 	}
 
 
-	for(i=0; i<(sizeof(p)/sizeof(p[0])); ++i){
+	for(i=0; i<(sizeof(p)/sizeof(p[0]))+1; ++i){
 		cout<<"sizeof(p["<<i<<"] = "<<sizeof(p[i])<<endl;
-		free p[i];
+		free(p[i]);
+//		delete p[i];
 	}
 
 	return 0;
