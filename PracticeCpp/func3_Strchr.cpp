@@ -6,6 +6,8 @@
 #include <string>
 #include <string.h>
 
+#define MAXLEN 1024
+
 using namespace std;
 
 int main(int argc,char **argv)
@@ -38,16 +40,33 @@ int main(int argc,char **argv)
 		}
 	}
 
-	cout<<"空格数量: "<<count_space<<endl;
+	cout<<"空格数量: "<<count_space<<endl;		//2
 	for(i=count_space+1;i>0;i--){
 		if((i-count_space) >= 0){
 //			cout<<"空格位置: "<<space_flag[i-count_space]<<endl;
-			for(;j<(len-space_flag[i-count_space]);j++){
-				cout<<str[space_flag[i-count_space] + j];
-			}
 		}
 		cout<<" ";
 	}
+
+	int num = 0;
+	char *s;
+	char *S[MAXLEN] = {};
+	const char *delim = " ";
+	s = strtok(str, delim);
+	while(s != NULL){
+		cout<<s<<"      num="<<num<<endl;
+		S[num]=(char *)malloc(sizeof(s));
+		memset(S[num], 0x00, sizeof(s));
+		memcpy(S[num],s,sizeof(s));
+		s = strtok(NULL, delim);
+		num++;
+	}
+	cout<<"num= "<<num<<endl;
+	for(i=num;i>0;i--){
+		cout<<S[i-1]<<" ";
+		free(S[i]);
+	}
+	cout<<endl;
 
 	return 0;
 }
