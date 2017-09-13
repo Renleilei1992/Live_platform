@@ -20,6 +20,14 @@ int main(int argc,char **argv)
 	iRet = memcmp(channel, CHANNEL_SGB, sizeof(channel));
 	printf("iRet=[%d]\n",iRet);
 
+	if(memcmp(channel, CHANNEL_SGB, sizeof(channel)) == 0)
+	{
+		printf("memcmp's answer is 0!\n");
+	}else{
+		printf("memcmp's answer not equal 0!\n");
+	}
+
+
 
 
 	return 0;
