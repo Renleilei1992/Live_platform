@@ -14,13 +14,13 @@ int main(int argc,char **argv)
 	printf("sizeof(101)=[%d]\n",(int)sizeof("101"));
 
 	memset(channel, 0x00, sizeof(channel));
-	memcpy(channel, "100", sizeof(channel));
+	memcpy(channel, CHANNEL_SGB, sizeof(channel));
 
 	printf("channel=[%s]\n",channel);
 	iRet = memcmp(channel, CHANNEL_SGB, sizeof(channel));
 	printf("iRet=[%d]\n",iRet);
 
-	if(memcmp(channel, CHANNEL_SGB, sizeof(channel)) == 0)
+	if(memcmp(channel, CHANNEL_SGB, sizeof(channel) - 1 ) == 0)
 	{
 		printf("memcmp's answer is 0!\n");
 	}else{
