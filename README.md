@@ -1,16 +1,18 @@
 ### Live_platform
     ` Simply Live PlatForm :) `
-    - [Frame]           : *Qt 5.7*
-    - [Language]        : *C++*
-    - [Lib]             : *STL*
-    - [SimplyStructure] : *C/S*
-    - [Protocol]        : *TCP/IP & UDP*
-    - [Fuction]         : *Live(Video & Audio)* *Watching Live* *Barrage* *Gift*
-    - [DataBase]        : *Sqlite3*
-    - [Sever Function]  : *Heartbeats* 
-    - [Client Function] : *Sign up/in* *Open Live* *Send Barrage* *Send gift*
+    - [Frame]           : __Qt 5.7__
+    - [Language]        : __C++__
+    - [Lib]             : __STL__
+    - [SimplyStructure] : __C/S__
+    - [Protocol]        : __TCP/IP & UDP__
+    - [Fuction]         : __Live(Video & Audio)__Watching Live__Barrage__Gift__
+    - [DataBase]        : __Sqlite3__
+    - [Sever Function]  : __Heartbeats__
+    - [Client Function] : __Sign up/in__Open Live__Send Barrage__Send gift__
    
    ------------------------------------------------------------------------------------------------------------
+   
+   ###### Intro:
     1.项目使用 C/S 架构，分为两个文件夹， Server 、Client ;
     2.服务器数据存储使用 Sqlite3 数据库，目前分为 userInfo(用户账号密码基本信息)、userIndex(用户积分消费额等信息)、userOL(在线用户列表临时存储)、roomInfo(直播间基本信息包括直播间名及直播间UDP地址、房主名);
     3.服务器IP地址使用 LocalHost，端口监听 AnyIPv4；
