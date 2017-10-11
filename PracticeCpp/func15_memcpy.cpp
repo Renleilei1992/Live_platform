@@ -15,7 +15,7 @@ using namespace std;
 
 int main(int argc,char **argv)
 {
-	char str[MAX_LEN] = {"Hello Memcpy!!!!"};
+	char str[MAX_LEN] = "Hello Memcpy!!!!";
 	char ans[10 + 1];
 
 	cout<<"sizeof(str)= ["<<sizeof(str)<<"]"<<endl; 	//1024
