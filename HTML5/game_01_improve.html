@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Game_01_improve</title>
+  </head>
+  <body>
+      <canvas id="id-canvas" width="400" height="300"></canvas>
+      <style media="screen">
+        canvas {
+          border: 1px black solid;
+          border-width: medium;
+        }
+      </style>
+<script>
+
+var log = console.log.bind(console)
+
+//封装图片来源函数
+var imageFromPath = function(path) {
+    var img = new Image()
+    img.src = path
+    return img
+}
+
+//图片类，封装砖块
+var Block = function() {
+    var image = imageFromPath('block.png')
+    log(image)
+    var o = {
+        image: image,
+        x: 100,
+        y: 200,
+        speed: 5,
+    }
+    o.moveLeft = function() {
+        o.x -= o.speed
+    }
+    o.moveRight = function() {
+        o.x += o.speed
+    }
+    return o
+}
+
+//游戏的动作封装
+var __Action = function() {
+  var g = {
+      actions: {},   //对象
+      keydowns: {},  //对象
+  }
+  var canvas = document.querySelector('#id-canvas')
+  var context = canvas.getContext('2d')
+  g.canvas = canvas
+  g.context = context
+  //draw
+  g.drawImage = function(actionImage){
+      g.context.drawImage(actionImage.image, actionImage.x, actionImage.y)
+  }
+  //events
+  window.addEventListener('keydown', function(event){
+      g.keydowns[event.key] = true
+  })
+  window.addEventListener('keyup', function(event){
+      g.keydowns[event.key] = false
+  })
+  //
+  g.registerAction = function(key, callback) {
+    g.actions[key] = callback
+  }
+
+  //timer
+  setInterval(function(){
+    //events
+    var actions = Object.keys(g.actions)
+    for (var i = 0; i < actions.length; i++) {
+       var key = actions[i]
+       if(g.keydowns[key]){
+          //如果按键按下, 调用注册的action
+          g.actions[key]()
+       }
+    }
+    //update
+    g.update()
+    //clear 清除屏幕
+    context.clearRect(0, 0, canvas.width, canvas.height)
+    //draw
+    g.draw()
+  }, 1000/30) //定时器设置，每秒30帧
+
+    return g
+}
+
+//主函数
+var __main = function() {
+
+  log('main begin')
+  var game = __Action()
+  var block = Block()
+
+  game.registerAction('a',function(){
+      block.moveLeft()
+  })
+  game.registerAction('d',function(){
+      block.moveRight()
+  })
+
+  game.update = function(){
+      //
+  }
+  game.draw = function(){
+      log('draw')
+      //draw
+      game.drawImage(block)
+  }
+
+}
+
+//调用主函数
+__main()
+</script>
+  </body>
+</html>
+
