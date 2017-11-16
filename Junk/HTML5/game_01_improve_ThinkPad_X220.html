@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Game_01_improve</title>
+  </head>
+  <body>
+      <canvas id="id-canvas" width="400" height="300"></canvas>
+      <style media="screen">
+        canvas {
+          border: 1px black solid;
+          border-width: medium;
+        }
+      </style>
+<script>
+
+var log = console.log.bind(console)
+
+//封装图片来源函数
+var imageFromPath = function(path) {
+    var img = new Image()
+    img.src = path
+    return img
+}
+
+//图片类，封装砖块
+var Block = function() {
+    var image = imageFromPath('block.png')
+    log(image)
+    var o = {
+        image: image,
+        x: 100,
+        y: 250,
+        speed: 5,
+    }
+    o.moveLeft = function() {
+        o.x -= o.speed
+    }
+    o.moveRight = function() {
+        o.x += o.speed
+    }
+    return o
+}
+
+//图片类，封装球
+var Ball = function() {
+    var image_ball = imageFromPath('ball.png')
+    log(image_ball)
+    var o_ball = {
+      image_ball: image_ball,
+      x: 100,
+      y: 200,
+      speed: 10,
+    }
+    return o_ball
+}
+
+//游戏的动作封装
+var __Action = function() {
+  var g = {
+      actions: {},   //对象
+      keydowns: {},  //对象
+  }
+  var canvas = document.querySelector('#id-canvas')
+  var context = canvas.getContext('2d')
+  g.canvas = canvas
+  g.context = context
+  //g.context.fillStyle = "green"
+  //draw
+  g.drawImage = function(actionImage){
+      g.context.drawImage(actionImage.image, actionImage.x, actionImage.y)
+  }
+  //events
+  window.addEventListener('keydown', function(event){
+      g.keydowns[event.key] = true
+  })
+  window.addEventListener('keyup', function(event){
+      g.keydowns[event.key] = false
+  })
+  //
+  g.registerAction = function(key, callback) {
+    g.actions[key] = callback
+  }
+
+  //timer
+  setInterval(function(){
+    //events
+    var actions = Object.keys(g.actions)
+    for (var i = 0; i < actions.length; i++) {
+       var key = actions[i]
+       if(g.keydowns[key]){
+          //如果按键按下, 调用注册的action
+          g.actions[key]()
+       }
+    }
+    //update
+    //g.update()
+    //clear 清除屏幕
+    context.clearRect(0, 0, canvas.width, canvas.height)
+    //draw
+    g.draw()
+  }, 1000/60) //定时器设置，每秒30帧
+
+    return g
+}
+//球的动作封装
+var __Action_ball = function() {
+    var b = {
+      actions: {},
+    }
+    var canvas = document.querySelector('#id-canvas')
+    var context = canvas.getContext('2d')
+
+    b.canvas = canvas
+    b.context = context
+
+    b.drawImage = function(actionImage){
+        b.context.drawImage(actionImage.image_ball, actionImage.x, actionImage.y)
+    }
+
+    setInterval(function(){
+      //b.update()
+      context.clearRect(0, 0, 100, 250)
+      b.draw()
+    }, 1000/60)
+
+    return b
+}
+
+//主函数
+var __main = function() {
+
+  log('main begin')
+  var game = __Action()
+  var game_ball = __Action_ball()
+  var block = Block()
+  var ball = Ball()
+
+  game.registerAction('a',function(){
+      block.moveLeft()
+  })
+  game.registerAction('d',function(){
+      block.moveRight()
+  })
+
+  game.update = function(){
+      //
+  }
+  game.draw = function(){
+      //log('draw')
+      //draw
+      game.drawImage(block)
+  }
+
+  game_ball.draw = function(){
+      game_ball.drawImage(ball)
+  }
+}
+
+//调用主函数
+__main()
+</script>
+  </body>
+</html>
