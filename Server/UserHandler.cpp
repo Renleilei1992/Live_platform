@@ -26,11 +26,11 @@ bool UserHandler::insertUser(const UserInfo& userInfo)
         qDebug()<<query_info.lastError();
     }
 
-    instance->removeConnection();
+    instance->removeConnection();		//断开与数据库的链接
     return ret_info;
 }
 
-//登录的时候需要往数据库中写入用户次要信息，如果写入失败证明该用户已登录！
+//登录的时候需要往数据库中写入用户次要信息，如果写入失败证明该用户已登录！ 在线用户列表?
 bool UserHandler::inserUserOL(const UserIndex& userIndex)
 {
     DBHelper *instance = DBHelper::getInstance();
