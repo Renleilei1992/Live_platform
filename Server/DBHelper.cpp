@@ -22,6 +22,7 @@ DBHelper* DBHelper::getInstance()
     return instance;
 }
 
+// 此处加载的是 sqlite3数据库 是否可以添加其他数据库?!
 bool DBHelper::createConnection()
 {
     db.setDatabaseName("D://Working//Qt_Demo//Server//user.db");          //打开user.db数据库
