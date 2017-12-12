@@ -4,6 +4,7 @@
 #define MES_MAX 512
 //#define MIN(a,b) (a)<(b) ? (a):(b)   //带参宏 函数特性
 
+//枚举类型 用于记录数据包标志，鉴别属于何种数据包
 enum dataType{
     REG_INFO,
     REG_FAIL,
