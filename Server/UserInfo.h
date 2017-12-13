@@ -57,9 +57,9 @@ public:
     RoomInfo(const QString& roomName,  const QString& roomAddr,const QString& roomOwnerName);
 
     int get_roomID(){ return roomID; }
-    const QString& get_roomName()const { return roomName; }
-    const QString& get_roomAddr()const { return roomAddr; }
-    const QString& get_roomOwnerName()const { return roomOwnerName; }
+    const QString& get_roomName()const { return roomName; }		//获取房间名
+    const QString& get_roomAddr()const { return roomAddr; }		//获取地址
+    const QString& get_roomOwnerName()const { return roomOwnerName; }		//获取房主名
 };
 
 #endif // USERINFO_H
