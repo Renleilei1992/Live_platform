@@ -1,5 +1,7 @@
 #include "UserInfo.h"
 
+//构造函数
+
 UserInfo::UserInfo()
 {
 
