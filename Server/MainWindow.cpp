@@ -164,7 +164,7 @@ void MainWindow::signal_enterLiveRoom_slot(QTcpSocket* socket, QString roomName,
                 find_userSocket->write((const char*)&package_sendBack, sizeof(package_sendBack));
             }
             qDebug()<<"online user number: "<<sqrt(count)<<"   refresh success!";
-            count = 1;
+            count = 1;		//还原count初值
         }
 
     }else{
