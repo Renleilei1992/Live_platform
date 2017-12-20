@@ -55,7 +55,7 @@ void LiveWatch::readyReadSlot()
 {
     //QByteArray即可以处理二进制数据也可以处理文本数据
     static QByteArray *arry = new QByteArray(2800000, 0);
-    //提供想arry中写入二进制数据的接口
+    //提供向arry中写入二进制数据的接口
     static QDataStream *stream = new QDataStream(arry,QIODevice::ReadWrite);
     static int i=0;
     while(videoRcvSocket->hasPendingDatagrams()){
