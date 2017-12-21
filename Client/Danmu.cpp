@@ -130,6 +130,7 @@ QRect Danmu::getScreenRect(){
 
 Danmu::~Danmu(){
 //    qDebug()<<"弹幕被析构"<<endl;
+	delete anim2;
 }
 
 int Danmu::getPosX(){
