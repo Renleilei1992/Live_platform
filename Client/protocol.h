@@ -4,27 +4,27 @@
 #define MES_MAX 512
 
 enum dataType{
-    REG_INFO,
+    REG_INFO,			//
     REG_FAIL,
     REG_SUCCESSFUL,
 
-    LOG_INFO,
+    LOG_INFO,			// 登录信息
     LOG_FAIL,
     LOG_SUCCESSFUL,
 
-    CREATE_INFO,
+    CREATE_INFO,		//创建信息
     CREATE_FAIL,
     CREATE_SUCCESSFUL,
 
-    CHECK_INFO,
+    CHECK_INFO,			//核对信息
     CHECK_BACK,
 
-    QUIT_ROOM,
-    ENTER_LIVE,
-    QUIT_LIVE,
-    QUIT_BACK,
+    QUIT_ROOM,			//离开直播间
+    ENTER_LIVE,			//加入直播间
+    QUIT_LIVE,			//退出直播
+    QUIT_BACK,			//
 
-    DANMU_INFO,
+    DANMU_INFO,			//弹幕信息
     DANMU_BACK,
 
     REFRESH_INFO,
